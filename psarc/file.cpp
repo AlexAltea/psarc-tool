@@ -5,10 +5,6 @@
 
 #define _CRT_SECURE_NO_WARNINGS
 
-#if _MSC_VER
-#define snprintf _snprintf
-#endif
-
 #include "file.h"
 
 struct File_impl {
@@ -164,5 +160,3 @@ uint32_t File::readUint32BE(uint8_t *ptr) {
 void File::write(void *ptr, uint32_t size) {
 	_impl->write(ptr, size);
 }
-
-#undef snprintf

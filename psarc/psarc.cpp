@@ -5,10 +5,6 @@
 
 #define _CRT_SECURE_NO_WARNINGS
 
-#if _MSC_VER
-#define snprintf _snprintf
-#endif
-
 #include "psarc.h"
 #include "strndup.h"
 
@@ -265,5 +261,3 @@ void PSARC::read(const char *arcName, uint32_t start, uint32_t end) {
 void PSARC::readHeader(const char *arcName) {
 	read(arcName, 0, 0, true);
 }
-
-#undef snprintf
