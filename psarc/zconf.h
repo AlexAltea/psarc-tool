@@ -404,10 +404,6 @@ typedef uLong FAR uLongf;
 #  define NO_vsnprintf
 #endif
 
-#if defined(__MVS__)
-#  define NO_vsnprintf
-#endif
-
 /* MVS linker does not support external names larger than 8 bytes */
 #if defined(__MVS__)
   #pragma map(deflateInit_,"DEIN")
