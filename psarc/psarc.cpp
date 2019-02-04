@@ -85,7 +85,6 @@ void PSARC::inflateEntry(uint32_t entry, uint32_t *zBlocks, uint32_t cBlockSize,
 				if (byte == 10) {
 					reader.read(_buffer, count);
 					_entries[i]._name = strndup((char *)_buffer, count);
-					reader.shift(1);
 				} else {
 					reader.read(_buffer, count);
 					_entries[i]._name = strndup((char *)_buffer, count+1);
