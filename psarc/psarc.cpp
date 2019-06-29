@@ -1,10 +1,11 @@
 /*
  * Open PSARC PS3 extractor
- * Copyright (C) 2011 Matthieu Milan
+ * Copyright (C) 2011-2018 Matthieu Milan
  */
 
 #define _CRT_SECURE_NO_WARNINGS
 
+#include <inttypes.h>
 #include "psarc.h"
 #include "strndup.h"
 
@@ -95,7 +96,7 @@ void PSARC::inflateEntry(uint32_t entry, uint32_t *zBlocks, uint32_t cBlockSize,
 			remove("tmp/psarc.temp");
 		} else {
 			if (stream.offset() != _entries[entry]._length)
-				printf("File size : %llu bytes. Expected size: %llu bytes\n", stream.offset(), _entries[entry]._length);
+				printf("File size : %" PRId64 " bytes. Expected size: %" PRId64 " bytes\n", stream.offset(), _entries[entry]._length);
 
 			stream.close();
 		}
@@ -181,7 +182,7 @@ void PSARC::read(const char *arcName, uint32_t start, uint32_t end, bool header)
 							char msg[512];
 
 							if (_entries[i]._length < 0x400L)
-								sprintf(msg, "%d %1.2lld b %s\n", i, _entries[i]._length, _entries[i]._name);
+								sprintf(msg, "%d %" PRId64 " b %s\n", i, _entries[i]._length, _entries[i]._name);
 							else if (_entries[i]._length < 0x100000L)
 								sprintf(msg, "%d %1.2f Kb %s\n", i, _entries[i]._length / 1024.0, _entries[i]._name);
 							else if (_entries[i]._length < 0x40000000L)
