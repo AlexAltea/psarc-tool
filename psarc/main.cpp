@@ -1,6 +1,6 @@
 /*
  * Open PSARC PS3 extractor
- * Copyright (C) 2011 Matthieu Milan
+ * Copyright (C) 2011-2018 Matthieu Milan
  */
 
 #include "psarc.h"
@@ -11,6 +11,7 @@ void usage() {
 	printf("\t-l\t\tCreate a text file that lists the file id, size, and name of every file in the archive.\n");
 	printf("\t-x\t\tExtracts all files.\n");
 	printf("\t-e START END\tExtracts files with the file id specified by the range between START and END (inclusive).\n");
+	printf("\t-v\t\tDisplay version.\n");
 }
 
 
@@ -21,7 +22,7 @@ int main(int argc, char *argv[]) {
 		case 2:
 			{
 				if (strncmp(argv[1], "-v", 2) == 0)
-					printf("psarc: version 0.1.2\n");
+					printf("psarc: version 0.1.3\n");
 				else
 					usage();
 			}

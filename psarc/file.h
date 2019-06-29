@@ -1,6 +1,6 @@
 /*
  * Open PSARC PS3 extractor
- * Copyright (C) 2011 Matthieu Milan
+ * Copyright (C) 2011-2018 Matthieu Milan
  */
 
 #ifndef FILE_H__
